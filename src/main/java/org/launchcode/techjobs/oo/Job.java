@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+
+
 public class Job {
 
     private int id;
@@ -32,8 +34,64 @@ public class Job {
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Job job = (Job) o;
+        return id == job.id;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
+//    private Object getId() {
+//        return id;
+//    }
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+    public String getName(){
+        if(name.isEmpty()){
+           return "Data not available";
+        }
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public Employer getEmployer() {
+        return employer;
+    }
+    public void setEmployer(Employer employer){
+        this.employer = employer;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+    public void setLocation(Location location){
+        this.location = location;
+    }
+
+    public PositionType getPositionType() {
+        return positionType;
+    }
+    public void setPositionType(PositionType positionType){
+        this.positionType = positionType;
+    }
+
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
+    }
+    public void setCorecompetency(CoreCompetency coreCompetency){
+        this.coreCompetency = coreCompetency;
+        //return coreCompetency;
+    }
+
+    public int getId() {
+        return id;
+    }
 }
