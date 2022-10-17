@@ -67,7 +67,6 @@ public class Job {
                 }
             }
         }
-
         return storedMessage;
     }
 
@@ -86,6 +85,9 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+    public int getId(){
+        return id;
+    }
 
 //    private Object getId() {
 //        return id;
@@ -93,46 +95,41 @@ public class Job {
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
     public String getName(){
-        if(name == null || name.isEmpty()){
-           return "Data not available";
-        }
         return name;
     }
-    public void setName(String name){
-        this.name = name;
+    public void setName(String value){
+        this.name = value;
     }
 
     public Employer getEmployer(){
         return employer;
     }
-    public void setEmployer(Employer employer){
-        this.employer = employer;
+    public void setEmployer(Employer value){
+        this.employer = value;
     }
 
     public Location getLocation(){
         return location;
     }
-    public void setLocation(Location location){
-        this.location = location;
+    public void setLocation(Location value){
+        this.location = value;
     }
 
     public PositionType getPositionType(){
         return positionType;
     }
-    public void setPositionType(PositionType positionType){
-        this.positionType = positionType;
+    public void setPositionType(PositionType value){
+        this.positionType = value;
     }
 
     public CoreCompetency getCoreCompetency(){
         return coreCompetency;
     }
-    public void setCorecompetency(CoreCompetency coreCompetency){
-        this.coreCompetency = coreCompetency;
+    public void setCoreCompetency(CoreCompetency value){
+        this.coreCompetency = value;
     }
 
-    public int getId(){
-        return id;
-    }
+
 //    @Override
 //    public String toString(){
 //        String s = "\nID: " + id +
