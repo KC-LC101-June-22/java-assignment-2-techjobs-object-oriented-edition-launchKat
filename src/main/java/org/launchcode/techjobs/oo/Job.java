@@ -33,42 +33,11 @@ public class Job {
     }
     @Override
     public String toString(){
-    String[] categories = {"ID: ", "Name: ", "Employer: ", "Location: ", "Position Type: ", "Core Competency: "};
-    Field[] theFields = Job.class.getDeclaredFields();
-    String notAvailable = "Data not available";
-    String storedMessage = "\n";
-    int index = 0;
-        for (Field field : theFields) {
-            if (field.getName() == "nextId") {
-
-            } else {
-                try {
-
-                    if (field.get(this) instanceof JobField) {
-
-                        if (((JobField) field.get(this)).getValue() == "") {
-
-                            storedMessage = storedMessage + categories[index] + notAvailable + "\n";
-                        }  else {
-
-                            storedMessage = storedMessage + categories[index] + field.get(this) + "\n";
-                        }
-                    }  else if (field.get(this) == null || field.get(this) == "") {
-
-                        storedMessage = storedMessage + categories[index] + notAvailable + "\n";
-                    }  else {
-
-                        storedMessage = storedMessage + categories[index] + field.get(this) + "\n";
-                    }
-                    index++;
-                } catch (Exception e) {
-                    storedMessage = storedMessage + categories[index] + notAvailable + "\n";
-                    index++;
-                }
-            }
-        }
-        return storedMessage;
+        String s = String.format("\nID: %d\nName: %s\nEmployer: %s\nLocation: %s\nPosition Type: %s\nCore Competency: %s\n", id, name, employer.getValue(), location.getValue(), positionType.getValue(), coreCompetency.getValue());
+        return s;
     }
+
+
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
@@ -95,6 +64,9 @@ public class Job {
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
     public String getName(){
+        if(name.isEmpty()){
+            return "Data not available";
+        }
         return name;
     }
     public void setName(String value){
@@ -130,15 +102,17 @@ public class Job {
     }
 
 
-//    @Override
-//    public String toString(){
-//        String s = "\nID: " + id +
-//                "\nName: " + name +
-//                "\nEmployer: " + employer.getValue() +
-//                "\nLocation: " + location.getValue() +
-//                "\nPosition Type: " + positionType.getValue() +
-//                "\nCore Competency: " + coreCompetency.getValue() + "\n";
-//        return s;
-//    }
+/*
+    @Override
+    public String toString(){
+        String s = "\nID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer.getValue() +
+                "\nLocation: " + location.getValue() +
+                "\nPosition Type: " + positionType.getValue() +
+                "\nCore Competency: " + coreCompetency.getValue() + "\n";
+        return s;
+    }
+*/
 
 }

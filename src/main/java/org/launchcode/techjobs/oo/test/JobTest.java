@@ -16,7 +16,8 @@ public class JobTest {
     public void testSettingJobId(){
     Job jobTestOne = new Job();
     Job jobTestTwo = new Job();
-        assertFalse(jobTestOne.equals( jobTestTwo));
+        assertEquals(jobTestOne.getId(),jobTestTwo.getId(), 1);
+        assertNotEquals(jobTestOne.getId(),jobTestTwo.getId());
 }
     @Test
     public void testJobConstructorSetsAllFields(){
@@ -49,20 +50,24 @@ public class JobTest {
     @Test
     public void  testToStringContainsCorrectLabelsAndData(){
         Job jobTestThree = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\nID: " + jobTestThree.getId() + "\nName: Product tester" +
-                "\nEmployer: ACME" +
-                "\nLocation: Desert" +
-                "\nPosition Type: Quality control" +
-                "\nCore Competency: Persistence\n"  , jobTestThree.toString());
+        assertEquals("ID: " + jobTestThree.getId() +
+                "\n" + "Name: Product tester" +
+                "\n" + "Employer: Data not available" +
+                "\n" + "Location: Desert" +
+                "\n" + "Position Type: Quality control" +
+                "\n" + "Core Competency: Data not available" +
+                "\n"  , jobTestThree.toString());
     }
     @Test
     public void testToStringHandlesEmptyField(){
         Job jobTestFive = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\nID: " + jobTestFive.getId() +
-                "\nName: Product tester" +
-                "\nEmployer: Data not available" +
-                "\nLocation: Desert\nPosition Type: Quality control" +
-                "\nCore Competency: Data not available" +
+        assertEquals("\n" +
+                "ID: " + jobTestFive.getId() +
+                "\n" + "Name: Product tester" +
+                "\n" + "Employer: Data not available" +
+                "\n" + "Location: Desert" +
+                "\n" + "Position Type: Quality control" +
+                "\n" + "Core Competency: Data not available" +
                 "\n"  , jobTestFive.toString());
     }
 
