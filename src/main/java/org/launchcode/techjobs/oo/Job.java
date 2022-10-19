@@ -25,6 +25,7 @@ public class Job {
         nextId++;
     }
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
+        this();
         this.name = name;
         this.employer = employer;
         this.location = location;
@@ -33,8 +34,31 @@ public class Job {
     }
     @Override
     public String toString(){
-        String s = String.format("\nID: %d\nName: %s\nEmployer: %s\nLocation: %s\nPosition Type: %s\nCore Competency: %s\n", id, name, employer.getValue(), location.getValue(), positionType.getValue(), coreCompetency.getValue());
-        return s;
+
+        String s = "";
+        if(name.isEmpty() || name == null || name == ""){
+            name = "Data not available";
+        }
+        if(employer.getValue() == null || employer.getValue() == ""){
+            employer.setValue("Data not available");
+        }
+        if(location.getValue() == null || location.getValue() == "") {
+            location.setValue("Data not available");
+        }
+        if(positionType.getValue() == null || positionType.getValue() == ""){
+            positionType.setValue("Data not available");
+        }
+        if(coreCompetency.getValue() == null || coreCompetency.getValue() == ""){
+            coreCompetency.setValue("Data not available");
+        }
+
+       s = String.format("\nID: %s\n" +
+               "Name: %s\n" +
+               "Employer: %s\n" +
+               "Location: %s\n" +
+               "Position Type: %s\n" +
+               "Core Competency: %s\n", id, name, employer, location, positionType, coreCompetency);
+       return s;
     }
 
 
@@ -45,7 +69,7 @@ public class Job {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Job)) return false;
         Job job = (Job) o;
         return id == job.id;
     }
