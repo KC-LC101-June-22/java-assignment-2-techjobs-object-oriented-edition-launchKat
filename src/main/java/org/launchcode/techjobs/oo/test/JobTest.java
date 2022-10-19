@@ -44,8 +44,8 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
         Job jobTestThree = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-         assertEquals(jobTestThree.toString().charAt(0),"\n");
-         assertEquals(jobTestThree.toString().charAt(jobTestThree.toString().length() - 1), "\n");
+         assertEquals(jobTestThree.toString().charAt(0),'\n');
+         assertEquals(jobTestThree.toString().charAt(jobTestThree.toString().length() - 1), '\n');
     }
     @Test
     public void  testToStringContainsCorrectLabelsAndData(){
