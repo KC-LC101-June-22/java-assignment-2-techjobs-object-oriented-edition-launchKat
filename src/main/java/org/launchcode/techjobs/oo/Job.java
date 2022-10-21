@@ -25,12 +25,13 @@ public class Job {
         nextId++;
     }
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency){
-        this();
+        this();//call upon previous constructor in order to use it here
         this.name = name;
         this.employer = employer;
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
+        //initialize these variables in this constructor to be used
     }
     @Override
     public String toString(){
@@ -51,7 +52,7 @@ public class Job {
         if(coreCompetency.getValue() == null || coreCompetency.getValue() == ""){
             coreCompetency.setValue("Data not available");
         }
-
+        //if statement to account for when information is not entered into one of the categories
        s = String.format("\nID: %s\n" +
                "Name: %s\n" +
                "Employer: %s\n" +
@@ -59,6 +60,7 @@ public class Job {
                "Position Type: %s\n" +
                "Core Competency: %s\n", id, name, employer, location, positionType, coreCompetency);
        return s;
+        //whatever is entered into the categories will appear in this format
     }
 
 

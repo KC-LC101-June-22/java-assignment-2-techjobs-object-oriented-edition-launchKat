@@ -13,15 +13,12 @@ public class Employer extends JobField {
 //        nextId++;
 //    }
 
-    public Employer() {
-        super();
-    }
     public Employer(String value) {
         super(value);
     }
+     //
 
     // Custom toString, equals, and hashCode methods:
-
 
 //    @Override
 //    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
